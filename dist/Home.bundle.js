@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[0],{80:function(e,n,t){"use strict";t.r(n);var s=t(38),l=Object(s.a)({},function(){var e=this.$createElement;return(this._self._c||e)("h3",[this._v("Home")])},[],!1,null,null,null);n.default=l.exports}}]);
+//# sourceMappingURL=Home.bundle.js.map
