@@ -1,0 +1,20 @@
+language: node_js
+
+node_js: stable
+
+cache: npm
+
+before_install:
+  - git config --global user.name "zphhhhh"
+  - git config --global user.email "zphhhhh@gmail.com"
+
+install:
+  - npm i
+
+script:
+  - npm run build
+
+after_success:
+  - git add dist -f
+  - git commit -m "[Travis CI] AUTO-BUILDER"
+  - git push --quiet --force https://$GITHUB_REPO_TOKEN@github.com/zphhhhh/scene.git
