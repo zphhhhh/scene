@@ -57,7 +57,8 @@ module.exports = {
           process.env.NODE_ENV !== 'production'
             ? 'vue-style-loader'
             : MiniCssExtractPlugin.loader,
-          'css-loader'
+          'css-loader',
+          'postcss-loader'
         ]
       },
       {
@@ -67,6 +68,7 @@ module.exports = {
             ? 'vue-style-loader'
             : MiniCssExtractPlugin.loader,
           'css-loader',
+          'postcss-loader',
           'less-loader'
         ]
       },
