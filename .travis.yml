@@ -17,4 +17,4 @@ script:
 after_success:
   - git add dist -f
   - git commit -m "[Travis CI] AUTO-BUILDER"
-  - git push --quiet --force https://$GITHUB_REPO_TOKEN@github.com/zphhhhh/scene.git
+  - git push --quiet --force https://$GITHUB_REPO_TOKEN@github.com/zphhhhh/scene.git HEAD:master
