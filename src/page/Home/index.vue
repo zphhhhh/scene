@@ -1,3 +1,13 @@
 <template>
-  <h3>Home</h3>
+  <h3>{{ time }}</h3>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      time: new Date(),
+    }
+  },
+}
+</script>

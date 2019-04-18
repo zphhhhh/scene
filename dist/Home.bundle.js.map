@@ -1,1 +1,0 @@
-{"version":3,"file":"Home.bundle.js","sources":["webpack:///./src/page/Home/index.vue"],"sourcesContent":["var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('h3',[_vm._v(\"Home\")])}\nvar staticRenderFns = []\n\nexport { render, staticRenderFns }"],"mappings":"AAAA","sourceRoot":""}
