@@ -1,23 +1,18 @@
 language: node_js
-
 node_js: stable
-
 cache: npm
-
 before_install:
-  - openssl aes-256-cbc -K $encrypted_42cd25acbd0a_key -iv $encrypted_42cd25acbd0a_iv
-    -in id_rsa.enc -out ~/.ssh/id_rsa -d
-  - git config --global user.name "zphhhhh"
-  - git config --global user.email "zphhhhh@gmail.com"
-
+- openssl aes-256-cbc -K $encrypted_42cd25acbd0a_key -iv $encrypted_42cd25acbd0a_iv
+  -in id_rsa.enc -out ~/.ssh/id_rsa -d
+- git config --global user.name "zphhhhh"
+- git config --global user.email "zphhhhh@gmail.com"
 install:
-  - npm i
-
+- npm i
 script:
-  - npm run build
-
+- npm run build
 after_success:
-  - git add dist -f
-  - git commit -m "[Travis CI] AUTO-BUILDER"
-  - git push --quiet --force https://$GITHUB_REPO_TOKEN@github.com/zphhhhh/scene.git HEAD:master
-  - rsync -P -rv --delete -e 'ssh -o stricthostkeychecking=no' dist/ $REMOTE_USER@$REMOTE_IP:~/static
+- git add dist -f
+- git commit -m "[Travis CI] AUTO-BUILDER"
+- git push --quiet --force https://$GITHUB_REPO_TOKEN@github.com/zphhhhh/scene.git
+  HEAD:master
+- rsync -P -rv --delete -e 'ssh -o stricthostkeychecking=no' dist/ $REMOTE_USER@$REMOTE_IP:~/static
