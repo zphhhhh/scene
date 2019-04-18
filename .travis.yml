@@ -15,4 +15,5 @@ after_success:
 - git commit -m "[Travis CI] AUTO-BUILDER"
 - git push --quiet --force https://$GITHUB_REPO_TOKEN@github.com/zphhhhh/scene.git
   HEAD:master
-- rsync -P -rv --delete -e 'ssh -o stricthostkeychecking=no' dist/ $REMOTE_USER@$REMOTE_IP:~/static
+- rsync -P -rv --delete -e 'ssh -o stricthostkeychecking=no -p $REMOTE_PORT' dist/
+  $REMOTE_USER@$REMOTE_IP:~/static
