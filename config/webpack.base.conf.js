@@ -79,7 +79,7 @@ module.exports = {
           options: {
             limit: 4096,
             // outputPath: utils.staticPathTo('images/'),
-            name: '[name]-manifest.[hash:10].[ext]',
+            name: '[name].[hash:10].[ext]',
           },
         },
       },
@@ -89,7 +89,7 @@ module.exports = {
         options: {
           limit: 4096,
           // outputPath: utils.staticPathTo('media/'),
-          name: '[name]-manifest.[hash:10].[ext]',
+          name: '[name].[hash:10].[ext]',
         },
       },
       {
@@ -99,7 +99,7 @@ module.exports = {
           options: {
             limit: 4096,
             // outputPath: utils.staticPathTo('fonts/'),
-            name: '[name]-manifest.[hash:10].[ext]',
+            name: '[name].[hash:10].[ext]',
           }
         }
       },
