@@ -6,8 +6,8 @@
 export default {
   data() {
     return {
-      time: new Date(),
+      time: new Date()
     }
-  },
+  }
 }
 </script>

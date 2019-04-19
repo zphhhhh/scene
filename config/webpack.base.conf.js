@@ -1,8 +1,8 @@
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-const { root, rootTo, dist, distTo } = require('./util.js');
+const { root, rootTo, dist, distTo } = require('./util.js')
 
 module.exports = {
   mode: 'development',
@@ -11,7 +11,7 @@ module.exports = {
   },
   output: {
     path: dist,
-    filename: '[name].bundle.js'
+    publicPath: '/',
   },
   devtool: 'cheap-module-source-map',
   resolve: {
@@ -78,8 +78,8 @@ module.exports = {
           loader: 'url-loader',
           options: {
             limit: 4096,
-            // outputPath: utils.staticPathTo('images/'),
-            name: '[name].[hash:10].[ext]',
+            outputPath: 'image',
+            name: '[name].[contenthash:7].[ext]'
           },
         },
       },
@@ -88,8 +88,8 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 4096,
-          // outputPath: utils.staticPathTo('media/'),
-          name: '[name].[hash:10].[ext]',
+          outputPath: 'media',
+          name: '[name].[contenthash:7].[ext]'
         },
       },
       {
@@ -98,8 +98,8 @@ module.exports = {
           loader: 'url-loader',
           options: {
             limit: 4096,
-            // outputPath: utils.staticPathTo('fonts/'),
-            name: '[name].[hash:10].[ext]',
+            outputPath: 'font',
+            name: '[name].[contenthash:7].[ext]'
           }
         }
       },
@@ -114,9 +114,6 @@ module.exports = {
           removeComments: true
         }
     }),
-    new VueLoaderPlugin(),
-    new MiniCssExtractPlugin({
-      filename: '[name].css'
-    })
+    new VueLoaderPlugin()
   ]
 };

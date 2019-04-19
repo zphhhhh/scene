@@ -10,9 +10,9 @@ module.exports = {
   settings: {
     "import/resolver": {
       webpack: {
-        config: "config/webpack.base.conf.js",
-      },
-    },
+        config: "config/webpack.base.conf.js"
+      }
+    }
   },
   rules: {
     "no-debugger": process.env.NODE_ENV === 'production' ? 2 : 0,
@@ -22,6 +22,6 @@ module.exports = {
     "no-return-assign": 0,
     "prefer-destructuring": 0,
     "import/no-named-as-default": 0,
-    "import/no-named-as-default-member": 0,
-  },
+    "import/no-named-as-default-member": 0
+  }
 }
