@@ -12,6 +12,7 @@ module.exports = {
     ]
   ],
   plugins: [
-    "@babel/plugin-syntax-dynamic-import" // 为了支持动态引入
+    "@babel/plugin-syntax-dynamic-import", // 为了支持动态引入
+    "@babel/plugin-proposal-optional-chaining" // 为了支持链运算
   ]
 }

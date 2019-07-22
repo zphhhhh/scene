@@ -1,5 +1,6 @@
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const StyleLintPlugin = require('stylelint-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const { root, rootTo, dist, distTo } = require('./util.js')
@@ -37,7 +38,16 @@ module.exports = {
       },
       {
         test: /\.vue$/,
-        use: ['vue-loader']
+        use: [
+          {
+            loader: 'vue-loader',
+            options: {
+              compilerOptions: {
+                preserveWhitespace: false
+              }
+            }
+          }
+        ]
       },
       {
         test: /\.js$/,
@@ -108,11 +118,16 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: rootTo('src/index.html'),
-        minify: {
-          collapseInlineTagWhitespace: true,
-          collapseWhitespace: true,
-          removeComments: true
-        }
+      minify: {
+        collapseInlineTagWhitespace: true,
+        collapseWhitespace: true,
+        removeComments: true
+      }
+    }),
+    new StyleLintPlugin({
+      context: rootTo('src'),
+      files: ['**/*.{html,vue,css,sass,scss,less}'],
+      fix: true
     }),
     new VueLoaderPlugin()
   ]

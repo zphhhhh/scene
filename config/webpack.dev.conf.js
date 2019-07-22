@@ -3,6 +3,7 @@ const merge = require('webpack-merge')
 const portfinder = require('portfinder')
 const baseWebpackConfig = require('./webpack.base.conf')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
+const MockMiddleware = require('./mock-middleware')
 
 const { root, rootTo, dist, distTo } = require('./util.js')
 
@@ -27,17 +28,28 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       //   },
       //   changeOrigin: true,
       // },
+    },
+    after(app) {
+      app.use(MockMiddleware)
     }
-  }
+  },
+  plugins: [
+    new webpack.ProgressPlugin()
+  ]
 })
 
 module.exports = portfinder.getPortPromise({
   port: devWebpackConfig.devServer.port
 }).then(port => {
+  const message = `Look at: http://${devWebpackConfig.devServer.host}:${port}\n`
   devWebpackConfig.devServer.port = port
+
   devWebpackConfig.plugins.push(new FriendlyErrorsPlugin({
     compilationSuccessInfo: {
-      messages: [`Look at: http://${devWebpackConfig.devServer.host}:${port}\n`]
+      messages: [message]
+    },
+    onErrors() {
+      console.log(message);
     }
   }))
   return devWebpackConfig
