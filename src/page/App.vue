@@ -7,6 +7,7 @@
 
 <style lang="less">
 h1 {
+  font-size: 20px;
   color: yellowgreen;
 }
 </style>
